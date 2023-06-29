@@ -15,11 +15,11 @@ X_train = ["I've been waiting for a HuggingFace course my whole life.",
 res = classifier(X_train) # using the specified models in classifier, predict the sentiment of X_train
 print(res)
 
-batch = tokenizer(X_train, padding=True, truncation=True, max_length=512, return_tensors="pt")
-print(batch) #truncation means to delete out of bounds
+batch = tokenizer(X_train, padding=True, truncation=True, max_length=512, return_tensors="pt") # pt is pytorch format
+print(batch) #truncation means to delete out of bounds, usually tokenizer() is used instead of sepearte functions used in pipe1
 
-with torch.no_grad():
-    outputs = model(**batch)
+with torch.no_grad(): #inference in pytorch
+    outputs = model(**batch) # ** --> unpacks the dictionary
     print(outputs) # outputs is a tuple of 2 tensors
 
     predictions = F.softmax(outputs.logits, dim=1) # softmax is a function that converts logits to probabilities
