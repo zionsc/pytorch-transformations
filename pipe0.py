@@ -10,7 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
 
 X_train = ["I've been waiting for a HuggingFace course my whole life.",
-           "Python is great!"]
+           "Python is great!"] # can use many sentences with this list
 
 res = classifier(X_train) # using the specified models in classifier, predict the sentiment of X_train
 print(res)
