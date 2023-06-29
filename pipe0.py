@@ -30,3 +30,14 @@ with torch.no_grad(): #inference in pytorch
     print(labels) # labels is a tensor of the predicted labels
 
 
+#save the model and tokenizer
+save_directory = "saved"
+tokenizer.save_pretrainedc(save_directory)
+model.save_pretrained(save_directory) # save the model and tokenizer to the specified directory
+# can load the model and tokenizer using AutoTokenizer.from_pretrained() and AutoModelForSequenceClassification.from_pretrained()
+
+#load the model and tokenizer
+tok = AutoTokenizer.from_pretrained(save_directory)
+mod = AutoModelForSequenceClassification.from_pretrained(save_directory)
+
+
