@@ -2,6 +2,7 @@ from transformers import pipeline
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import torch.nn.functional as F
+#step by step process of pipe1.py w/ pytorch
 
 model_name = "distilbert-base-uncased-finetuned-sst-2-english"
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
